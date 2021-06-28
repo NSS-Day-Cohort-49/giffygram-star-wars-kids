@@ -24,14 +24,9 @@
 
         <div class="buttons">
         <button class="button" id="postGif">Post</button>
-        <button class="button" id="cancelGif">Cancel</button>
         </div>
 
         </div>
-
-        
-
-
 
         `
         return html
