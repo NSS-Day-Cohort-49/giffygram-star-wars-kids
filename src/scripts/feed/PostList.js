@@ -1,23 +1,24 @@
 import { getPost } from "../data/provider";
 
-const post = getPost()
 
-const listPost = post.map(post => {
+export const listPost = () => {
+    const posts = getPost()
 
-
-    return `
-    <div class="tiredOfThis">
-    <section class="postList">${matchingSender.fullName}${matchingSender.email}<section> 
-    <section class="postList">${letter.body}</section>
-    <section class="postList">${matchingReceiver.fullName}${matchingReceiver.email}<section> 
-    <section class="postList">${letter.date}</section>
-    <section class="selectedTopics">${selectedTopics.topicLabel}</section>
-    </div>
-  
+    let html =`
+    <ul>
+    ${
+        posts.map(
+            (post) => `
+            <section>
+                <h2 class= "post__title">${post.title}</h2>
+                <img class="post__image" src=${post.imageURL}>
+                <div class="post__discription">${post.description}</div>
+                <button class="post__delete" id="request--${post.id}">
+                    Delete
+                </button>
+            </section>`
+        ).join("")
+    }
     `
-    html += listItems.join("")
-    html += "</section>"
-    
     return html
-})
-
+}
