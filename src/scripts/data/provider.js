@@ -36,20 +36,20 @@ export const getPost = (id) => {
     applicationState.currentPost = id
 }
 
-// export const sendLetter = (userLetterToSend) => {
-//     const fetchOptions = {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(userLetterToSend)
-//     }
+export const postGif = (userSubmission) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userSubmission)
+    }
         
-// return fetch(`${API}/letters`, fetchOptions)
-//     .then(response => response.json())
-//     .then(() => {
-//         mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-//         render()
+return fetch(`${apiURL}/post`, fetchOptions)
+    .then(response => response.json())
+    .then(() => {
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        render()
 
-//     })
-// }
+    })
+}
