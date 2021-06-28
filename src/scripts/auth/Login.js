@@ -1,6 +1,6 @@
 import { getUsers } from "../data/provider.js"
 
-
+console.log(getUsers())
 document.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "loginButton") {
         let foundUser = null
