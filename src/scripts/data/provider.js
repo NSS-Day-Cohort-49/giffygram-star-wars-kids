@@ -48,7 +48,7 @@ export const postGif = (userSubmission) => {
 return fetch(`${apiURL}/post`, fetchOptions)
     .then(response => response.json())
     .then(() => {
-        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
         render()
 
     })
