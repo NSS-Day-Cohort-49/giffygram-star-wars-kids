@@ -53,3 +53,13 @@ return fetch(`${apiURL}/posts`, fetchOptions)
 
     })
 }
+
+export const deletePost = (id) => {
+    const applicationElement = document.querySelector(".giffygram");
+    return fetch(`${apiURL}/posts/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
