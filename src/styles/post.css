@@ -14,6 +14,7 @@
 .newPost__input {
     width: 30rem;
     margin: 0.5rem 0;
+    margin-left: 2em;
 }
 
 .newPost__description {

@@ -39,17 +39,17 @@
 
         <div class="field">
             <label id="Container""class="label" for="post">Title</label>
-            <textarea class="titleContainer" name="titlePost" rows="1" cols="30"></textarea>
+            <textarea class="titleContainer" name="titlePost" rows="1" cols="60"></textarea>
         </div>
 
         <div class="field">
             <label id="Container""class="label" for="post">Url</label>
-            <textarea class="urlContainer" name="urlPost" rows="1" cols="30"></textarea>
+            <textarea class="urlContainer" name="urlPost" rows="2" cols="60"></textarea>
         </div>
 
         <div class="field">
             <label id="Container""class="label" for="post">Whats the story behind your gif?</label>
-            <textarea class="textContainer" name="storyPost" rows="4" cols="30"></textarea>
+            <textarea class="textContainer" name="storyPost" rows="4" cols="60"></textarea>
         </div>
 
         <div class="buttons">
