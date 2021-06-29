@@ -1,43 +1,44 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "Elvis Presley",
-      "email": "thaKing@gmail.com",
-      "password": "thaKing"
-    }
-  ],
-  "post": [
-    {
-      "id": 1,
-      "userId": 1,
-      "title": "Karate",
-      "imageURL": "https://thumbs.gfycat.com/DelayedUnripeAmericanwirehair-size_restricted.gif",
-      "description": "Look out, man!",
-      "timestamp": 1
-    }
-  ],
-  "likes": [
-    {
-      "id": 1,
-      "userId": 1,
-      "postId": 1
-    }
-  ],
-  "messages": [
-    {
-      "userId": 1,
-      "recipientId": 1,
-      "text": "One gif to rule them all",
-      "read": true,
-      "id": 1
-    }
-  ],
-  "follows": [
-    {
-      "id": 1,
-      "userId": 1,
-      "followingId": 1
-    }
-  ]
-}
+    "users": [
+        {
+            "id": 1,
+             "name": "Elvis Presley",
+             "email": "thaKing@gmail.com",
+             "password": "thaKing"
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "userId": 1,
+            "title": "Karate",
+            "imageURL": "https://thumbs.gfycat.com/DelayedUnripeAmericanwirehair-size_restricted.gif",
+            "description": "Look out, man!",
+            "timestamp": 1
+        }
+    ],
+    "likes": [
+        {
+            "id": 1,
+            "userId": 1,
+            "postId": 1
+        }
+    ],
+    "messages": [
+        {
+            "userId": 1,
+            "recipientId": 1,
+            "text": "One gif to rule them all",
+            "read": true,
+            "id": 1
+        }
+    ],
+    "follows": [
+        {
+            "id": 1,
+            "userId": 1,
+            "followingId": 1
+        }
+    ]
+    
+  }
