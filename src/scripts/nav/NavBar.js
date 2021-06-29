@@ -22,20 +22,20 @@ applicationElement.addEventListener("click", evt => {
 })
 
 export const NavBar = () => {
-    return `<div class="navigation__icon" img="/images/pb.png">
-                <button id="home"></button>
+    return `<div class="navigation__icon navigation__icon">
+                <img src="/images/pb.png" id="logo">
             </div>
-            <div class="">
-                <h1 class="">GiffyGram</h1>
+            <div class="navigation__item navigation__name">
+                GiffyGram
             </div>
-            <div class="">
-                <button id="message" class="" src="/images/fountain-pen.svg"></button>
+            <div class="navigation__item navigation__message">
+                <img id="directMessageIcon" src="/images/fountain-pen.svg">
+                    <div class="notification__count">
+                        0
+                    </div>
             </div>
-            <div class="">
-                <button class=""></button>
-            </div>
-            <div class="">
-                <button id="logout" class=""></button>
+            <div class="navigation__item navigation__logout">
+                <button id="logout" class="fakeLink">Logout</button>
             </div>
     `
 }
