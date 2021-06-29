@@ -23,17 +23,17 @@ export const fetchUsers = () => {
         })
 }
 export const fetchPosts = () => {
-    return fetch(`${apiURL}}/post`) 
+    return fetch(`${apiURL}/posts`) 
         .then(response => response.json())  
-        .then(post => {
+        .then((post) => {
             applicationState.posts = post
         })
 }
 export const getUsers = () => {
     return [...applicationState.users] 
 }
-export const getPost = (id) => {
-    applicationState.currentPost = id
+export const getPost = () => {
+    return [...applicationState.posts]
 }
 
 export const postGif = (userSubmission) => {
@@ -45,7 +45,7 @@ export const postGif = (userSubmission) => {
         body: JSON.stringify(userSubmission)
     }
         
-return fetch(`${apiURL}/post`, fetchOptions)
+return fetch(`${apiURL}/posts`, fetchOptions)
     .then(response => response.json())
     .then(() => {
         applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
