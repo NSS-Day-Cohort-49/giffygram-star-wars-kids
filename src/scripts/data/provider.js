@@ -50,6 +50,5 @@ return fetch(`${apiURL}/posts`, fetchOptions)
     .then(() => {
         applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
         render()
-
     })
 }
