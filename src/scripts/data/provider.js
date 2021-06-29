@@ -1,6 +1,6 @@
 const apiURL = "http://localhost:8088"
 const applicationElement = document.querySelector(".giffygram")
-
+import  { renderApp } from "../main.js";
 
 const applicationState = {
     currentUser: {},
@@ -49,7 +49,7 @@ return fetch(`${apiURL}/posts`, fetchOptions)
     .then(response => response.json())
     .then(() => {
         applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
-        render()
+        renderApp()
 
     })
 }
