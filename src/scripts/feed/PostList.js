@@ -1,4 +1,4 @@
-import { getPost } from "../data/provider";
+import { getPost } from "../data/provider.js";
 
 
 export const listPost = () => {
