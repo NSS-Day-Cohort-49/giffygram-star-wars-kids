@@ -10,7 +10,7 @@ export const GiffyGram = () => {
     <nav class="navigation">
         ${NavBar()}
     </nav>
-        <h1>Giffygram</h1>
+    <p>&nbsp;</p> 
     <section class="newPost__input">
          ${gifForm()}
     </section>
