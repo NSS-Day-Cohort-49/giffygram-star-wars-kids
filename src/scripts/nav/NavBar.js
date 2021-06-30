@@ -1,6 +1,7 @@
 import { fetchMessages } from "../data/provider.js"
 import { ShowMessages } from "../friends/DirectMessage.js"
 import { GiffyGram } from "../GiffyGram.js"
+import { ShowMessageForm } from "../message/MessageForm.js"
 const applicationElement = document.querySelector(".giffygram")
 
 applicationElement.addEventListener("click", evt => {
@@ -13,6 +14,7 @@ applicationElement.addEventListener("click", evt => {
 applicationElement.addEventListener("click", evt => {
     if(evt.target.id === "directMessageIcon"){
         //render message form... probably will need to build message form and import it into this file to then activate it once click event is triggered
+        applicationElement.innerHTML = ShowMessageForm()
     }
 })
 applicationElement.addEventListener("click", evt => {
@@ -24,7 +26,9 @@ applicationElement.addEventListener("click", evt => {
 })
 applicationElement.addEventListener("click", evt => {
     if(evt.target.id === "logout"){
-        //logout... not sure how to trigger a log out yet
+        //logout
+        localStorage.setItem("gg_user", null)
+        document.querySelector(".giffygram").dispatchEvent(new CustomEvent("stateChanged"))
     }
 })
 
