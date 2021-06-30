@@ -5,6 +5,12 @@
       "name": "Elvis Presley",
       "email": "thaKing@gmail.com",
       "password": "thaKing"
+    },
+    {
+      "id": 2,
+      "name": "Dr Gonzo",
+      "email": "DrGonzo@hotmail.com",
+      "password": "gonzo"
     }
   ],
   "posts": [
@@ -15,6 +21,14 @@
       "imageURL": "https://thumbs.gfycat.com/DelayedUnripeAmericanwirehair-size_restricted.gif",
       "description": "Look out, man!",
       "timestamp": 1
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "title": "This is my last drink",
+      "imageURL": "https://media1.tenor.com/images/208e20e60976de0866af58ac32386f41/tenor.gif?itemid=14902415",
+      "description": "Good People",
+      "timestamp": 1
     }
   ],
   "likes": [
@@ -22,6 +36,11 @@
       "id": 1,
       "userId": 1,
       "postId": 1
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "postId": 2
     }
   ],
   "messages": [

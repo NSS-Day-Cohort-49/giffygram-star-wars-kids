@@ -10,19 +10,19 @@
 
     applicationElement.addEventListener("click", clickEvent => {
         if (clickEvent.target.id === "postGif" ) {
-            // const CurrentUser = ????????
+            const loggedUser = parseInt(localStorage.getItem("gg_user"))
             const Title = document.querySelector("textarea[name='titlePost']").value
             const Url = document.querySelector("textarea[name='urlPost']").value
             const Story = document.querySelector("textarea[name='storyPost']").value
     
             const dataToSendToLetterAPI = {
-                // userId: ???????,
+                userId: loggedUser,
                 title: Title,
                 imageURL: Url ,
                 description: Story, 
                 timestamp: today
             }
-            if (Title !== "" && Url !== "" && Story !== "") {
+            if (Title !== "" && Url !== "" && Story !== "") { 
                 postGif(dataToSendToLetterAPI)
 
             } else {
@@ -30,6 +30,8 @@
             }
             
         }})
+
+        
 
 
     export const gifForm = () => {
