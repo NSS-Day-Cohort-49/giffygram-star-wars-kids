@@ -29,13 +29,22 @@ export const fetchPosts = () => {
             applicationState.posts = post
         })
 }
+export const fetchMessages = () => {
+    return fetch(`${apiURL}/messages`)
+        .then(response => response.json())
+        .then((message) => {
+            applicationState.messages = message
+        })
+}
 export const getUsers = () => {
     return [...applicationState.users] 
 }
 export const getPost = () => {
     return [...applicationState.posts]
 }
-
+export const getMessages = () => {
+    return [...applicationState.messages]
+}
 export const postGif = (userSubmission) => {
     const fetchOptions = {
         method: "POST",
