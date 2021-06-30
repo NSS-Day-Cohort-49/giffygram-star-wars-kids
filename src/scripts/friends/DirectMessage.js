@@ -29,8 +29,8 @@ export const DirectMessages = () => {
             
             return `
             <section>
-                <h2 class="">From ${userPost.name}</h2>
-                <div class+"">${message.text}</div>
+                <h2 class="message__author">From ${userPost.name}</h2>
+                <div class="message">${message.text}</div>
 
             `
         }).join("")
@@ -38,16 +38,15 @@ export const DirectMessages = () => {
     `
     return html
 }
-export const renderMessages = () => {
-    fetchMessages().then(
-        () => {
-            applicationElement.innerHTML = ShowMessages()
-        }
-    )
-}
-applicationElement.addEventListener(
-    "stateChanged", () => {
-        renderMessages()
-    }
-)
-//need to FETCH messages to display
+// export const renderMessages = () => {
+//     fetchMessages().then(
+//         () => {
+//             applicationElement.innerHTML = ShowMessages()
+//         }
+//     )
+// }
+// applicationElement.addEventListener(
+//     "stateChanged", () => {
+//         renderMessages()
+//     }
+// )
