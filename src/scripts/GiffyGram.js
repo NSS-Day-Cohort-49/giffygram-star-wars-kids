@@ -1,6 +1,7 @@
 import {gifForm} from "./feed/PostEntry.js"
 import { listPost } from "./feed/PostList.js"
 import { NavBar } from "./nav/NavBar.js"
+import { footer } from "./nav/Footer.js"
 
 export const GiffyGram = () => {
 
@@ -15,5 +16,9 @@ export const GiffyGram = () => {
     </section>
         <section class="post__list">
             ${listPost()}
-        </section>`
+        </section>
+    <section class="footer">
+        ${footer()}
+    <section>
+    `
 }

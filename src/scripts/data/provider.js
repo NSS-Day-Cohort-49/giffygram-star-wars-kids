@@ -2,7 +2,7 @@ const apiURL = "http://localhost:8088"
 const applicationElement = document.querySelector(".giffygram")
 import  { renderApp } from "../main.js";
 
-const applicationState = {
+export const applicationState = {
     currentUser: {},
     feed: {
         chosenUser: null,
@@ -29,6 +29,13 @@ export const fetchPosts = () => {
             applicationState.posts = post
         })
 }
+export const fetchLikes = () => {
+    return fetch (`${apiURL}/likes`)
+        .then (response => response.json())
+        .then((like) => {
+            applicationState.likes = like
+    })
+}
 export const fetchMessages = () => {
     return fetch(`${apiURL}/messages`)
         .then(response => response.json())
@@ -42,6 +49,10 @@ export const getUsers = () => {
 export const getPost = () => {
     return [...applicationState.posts]
 }
+export const getLikes = () => {
+    return [...applicationState.likes]
+}
+
 export const getMessages = () => {
     return [...applicationState.messages]
 }
