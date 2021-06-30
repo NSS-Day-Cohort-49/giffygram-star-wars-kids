@@ -39,10 +39,3 @@ export const LoginForm = () => {
         </div>
     `
 }
-
-document.addEventListener("click", evt => {
-    if(evt.target.id === "logout"){
-        localStorage.setItem("gg_user", null)
-        document.querySelector(".giffygram").dispatchEvent(new CustomEvent("stateChanged"))
-    }
-})
