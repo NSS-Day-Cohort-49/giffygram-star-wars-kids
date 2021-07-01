@@ -52,10 +52,10 @@ export const getPost = () => {
 export const getLikes = () => {
     return [...applicationState.likes]
 }
-
 export const getMessages = () => {
     return [...applicationState.messages]
 }
+
 export const postGif = (userSubmission) => {
     const fetchOptions = {
         method: "POST",
