@@ -74,9 +74,32 @@ return fetch(`${apiURL}/posts`, fetchOptions)
     })
 }
 
+export const setLikes = (fav) => {
+
+    fetch(`${apiURL}/likes`, {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(fav)
+      })
+    }
+
 export const deletePost = (id) => {
     const applicationElement = document.querySelector(".giffygram");
-    return fetch(`${apiURL}/posts/${id}`, { method: "DELETE" })
+    return fetch(`${apiURL}/posts/${id}`, { 
+        method: "DELETE" })
+        .then(
+            () => {
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
+
+export const deleteLike = (id) => {
+    const applicationElement = document.querySelector(".giffygram");
+    return fetch(`${apiURL}/likes/${id}`, { 
+        method: "DELETE" })
         .then(
             () => {
                 applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
