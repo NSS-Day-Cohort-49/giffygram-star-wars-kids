@@ -26,7 +26,7 @@ export const ShowMessageForm = () => {
 }
 export const MessageForm = () => {
     const recipient = getUsers()
-
+    
     let html = `
         <div class="">
             <h3>Direct Message</h3>

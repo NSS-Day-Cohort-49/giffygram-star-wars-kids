@@ -1,8 +1,23 @@
-import { fetchMessages } from "../data/provider.js"
+import { fetchMessages, getMessages } from "../data/provider.js"
 import { ShowMessages } from "../friends/DirectMessage.js"
 import { GiffyGram } from "../GiffyGram.js"
 import { ShowMessageForm } from "../message/MessageForm.js"
 const applicationElement = document.querySelector(".giffygram")
+
+export const messageCounter = ()=> {
+    fetchMessages().then(() => {
+	const messages = getMessages()
+	// const currentUser = parseInt(localStorage.getItem("gg_user"))	
+	// const filteredMessages = messages.filter((message) => { return message.recipientId === currentUser})
+	const unreadMessages = messages.filter((message) => { return message.read === false})
+	const readMessages = messages.filter((message) => { return message.read === true})
+	let totalReadMessages = parseInt(readMessages.length)
+	let totalUnreadMessages = parseInt(unreadMessages.length)
+    console.log(totalReadMessages, totalUnreadMessages, "This is the counters for how many read/unread messages there is")
+    }
+    )
+}
+messageCounter()
 
 applicationElement.addEventListener("click", evt => {
     if(evt.target.id === "logo"){
@@ -42,7 +57,7 @@ export const NavBar = () => {
             <div class="navigation__item navigation__message">
                 <img id="directMessageIcon" src="/images/fountain-pen.svg">
                     <div class="notification__count" id="notifications">
-                        0
+                        ${messageCounter()}
                     </div>
             </div>
             <div class="navigation__item navigation__logout">
