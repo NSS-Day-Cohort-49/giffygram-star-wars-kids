@@ -1,4 +1,4 @@
-import { getPost, getUsers, deletePost } from "../data/provider.js";
+import { getPost, getUsers, deletePost, setLikes } from "../data/provider.js";
 
 
 export const listPost = () => {
@@ -27,7 +27,7 @@ export const listPost = () => {
                     Delete
                 </button>
                 <div class="post__favorite">
-                <input type="checkbox" value="${post.id}">Fevorite</div>
+                <input type="checkbox" value="${post.id}" name="favorite">Favorite</div>
             </section>`
         }
         ).join("")
@@ -43,3 +43,13 @@ applicationElement.addEventListener("click", click => {
         deletePost(parseInt(postId))
     }
 })
+
+applicationElement.addEventListener(
+    "change",
+    (event) => {
+      if(event.target.name === "favorite") {
+        const postId = event.target.value
+        setLikes(parseInt(postId))
+      }
+    }
+    )

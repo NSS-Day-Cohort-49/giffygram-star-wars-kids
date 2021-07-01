@@ -74,9 +74,27 @@ return fetch(`${apiURL}/posts`, fetchOptions)
     })
 }
 
+export const setLikes = (id) => {
+        if(!applicationState.likes.includes(id)){
+            applicationState.likes.push(id)
+        } else {
+            applicationState.likes = applicationState.likes.filter(
+                (postId) => postId !== id)
+        }
+
+    fetch(`${apiURL}/likes`, {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newlike)
+      })
+    }
+
 export const deletePost = (id) => {
     const applicationElement = document.querySelector(".giffygram");
-    return fetch(`${apiURL}/posts/${id}`, { method: "DELETE" })
+    return fetch(`${apiURL}/posts/${id}`, { 
+        method: "DELETE" })
         .then(
             () => {
                 applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
