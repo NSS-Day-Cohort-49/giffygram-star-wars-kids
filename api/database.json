@@ -55,6 +55,40 @@
       "text": "One gif to rule them all",
       "read": true,
       "id": 1
+    },
+    {
+      "userId": 1,
+      "text": "test",
+      "read": false,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "recipientId": 2,
+      "text": "test",
+      "read": false,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "recipientId": 1,
+      "text": "test",
+      "read": false,
+      "id": 4
+    },
+    {
+      "userId": 3,
+      "recipientId": 3,
+      "text": "testtest",
+      "read": false,
+      "id": 5
+    },
+    {
+      "userId": 3,
+      "recipientId": 2,
+      "text": "testtesttest",
+      "read": false,
+      "id": 6
     }
   ],
   "follows": [

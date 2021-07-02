@@ -18,7 +18,7 @@ applicationElement.addEventListener("click", clickEvent => {
     }
 })
 applicationElement.addEventListener("change", changeEvent => {
-    if (changeEvent.target.value === "1") {
+    if (changeEvent.target.value === "0") {
         applicationElement.innerHTML = GiffyGram()
     }
 })

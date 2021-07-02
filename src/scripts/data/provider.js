@@ -69,9 +69,25 @@ export const postGif = (userSubmission) => {
         .then(response => response.json())
         .then(() => {
             applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
-            renderApp()
+            // renderApp()
 
         })
+}
+export const sendMessage = (userSubmission) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userSubmission)
+    }
+
+    return fetch(`${apiURL}/messages`, fetchOptions)
+    .then(response => response.json())
+    .then(() => {
+        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+        renderApp()
+    })
 }
 
 export const setLikes = (fav) => {

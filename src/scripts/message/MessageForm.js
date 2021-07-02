@@ -1,10 +1,31 @@
 import { NavBar } from "../nav/NavBar.js"
-import { fetchMessages, getMessages, getUsers } from "../data/provider.js"
+import { fetchMessages, getMessages, getUsers, sendMessage } from "../data/provider.js"
 import { gifForm } from "../feed/PostEntry.js"
 import { listPost } from "../feed/PostList.js"
 import { footer } from "../nav/Footer.js"
+import { GiffyGram } from "../GiffyGram.js"
 const applicationElement = document.querySelector(".giffygram")
 
+applicationElement.addEventListener("click", evt => {
+    if (evt.target.id === "directMessage__close" || evt.target.id === "directMessage__cancel") {
+        applicationElement.innerHTML = GiffyGram()
+    }
+})
+applicationElement.addEventListener("click", evt => {
+    if (evt.target.id === "directMessage__submit") {
+        // const loggedUser = parseInt(localStorage.getItem("gg_user"))
+        // const recipient = getUsers()
+        const recipient = document.querySelector("#recipientSelect").value
+        const message = document.querySelector("input[name='message']").value
+        const dataToSendToMessageAPI = {
+            userId: parseInt(localStorage.getItem("gg_user")),
+            recipientId: parseInt(recipient),
+            text: message,
+            read: false
+        }
+        sendMessage(dataToSendToMessageAPI)
+    }
+})
 export const ShowMessageForm = () => {
     return `
         <nav class="navigation">
@@ -27,13 +48,13 @@ export const ShowMessageForm = () => {
 export const MessageForm = () => {
     const recipient = getUsers()
 
-    let html = `
-        <div class="">
+    return `
+        <div>
             <h3>Direct Message</h3>
             <div>Recipient: 
                 <select name="directMessage__userSelect" class="message__input" id="recipientSelect">
-                    <option value="0">Select recipient...</option>
-                    ${recipient.map(recip => { return `<option value="${recip.id}">${recip.name} </option>` }).join("")}
+                    <option value="">Select recipient...</option>
+                    ${recipient.map(recip => { return `<option class="recipientSelect" value="${recip.id}">${recip.name} </option>` }).join("")}
                 </select>
             </div>
             <div>
@@ -46,5 +67,4 @@ export const MessageForm = () => {
         </div>
 
     `
-    return html
 }
