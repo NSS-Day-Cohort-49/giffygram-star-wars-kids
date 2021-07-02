@@ -1,41 +1,42 @@
-    import {postGif} from "../data/provider.js";
-    const applicationElement = document.querySelector(".giffygram")
+import { postGif } from "../data/provider.js";
+const applicationElement = document.querySelector(".giffygram")
 
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); 
-    var yyyy = today.getFullYear();
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0');
+var yyyy = today.getFullYear();
 
-    today = mm + '/' + dd + '/' + yyyy;
+today = mm + '/' + dd + '/' + yyyy;
 
-    applicationElement.addEventListener("click", clickEvent => {
-        if (clickEvent.target.id === "postGif" ) {
-            const loggedUser = parseInt(localStorage.getItem("gg_user"))
-            const Title = document.querySelector("textarea[name='titlePost']").value
-            const Url = document.querySelector("textarea[name='urlPost']").value
-            const Story = document.querySelector("textarea[name='storyPost']").value
-    
-            const dataToSendToLetterAPI = {
-                userId: loggedUser,
-                title: Title,
-                imageURL: Url ,
-                description: Story, 
-                timestamp: today
-            }
-            if (Title !== "" && Url !== "" && Story !== "") { 
-                postGif(dataToSendToLetterAPI)
+applicationElement.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "postGif") {
+        const loggedUser = parseInt(localStorage.getItem("gg_user"))
+        const Title = document.querySelector("textarea[name='titlePost']").value
+        const Url = document.querySelector("textarea[name='urlPost']").value
+        const Story = document.querySelector("textarea[name='storyPost']").value
 
-            } else {
-                alert("Please fill in all fields")
-            }
-            
-        }})
+        const dataToSendToLetterAPI = {
+            userId: loggedUser,
+            title: Title,
+            imageURL: Url,
+            description: Story,
+            timestamp: today
+        }
+        if (Title !== "" && Url !== "" && Story !== "") {
+            postGif(dataToSendToLetterAPI)
 
-        
+        } else {
+            alert("Please fill in all fields")
+        }
+
+    }
+})
 
 
-    export const gifForm = () => {
-        let html = `
+
+
+export const gifForm = () => {
+    let html = `
        
         <div class="postField">
 
@@ -61,6 +62,6 @@
         </div>
 
         `
-        return html
+    return html
 
-    }
+}

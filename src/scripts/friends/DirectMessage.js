@@ -21,32 +21,20 @@ export const DirectMessages = () => {
     let html = `
     <ul>
         ${messages.map((message) => {
-            for(const user of users){
-                if(user.id === message.userId) {
-                    userPost = user
-                }
-            } 
-            
-            return `
+        for (const user of users) {
+            if (user.id === message.userId) {
+                userPost = user
+            }
+        }
+
+        return `
             <section>
                 <h2 class="message__author">From ${userPost.name}</h2>
                 <div class="message">${message.text}</div>
 
             `
-        }).join("")
+    }).join("")
         }
     `
     return html
 }
-// export const renderMessages = () => {
-//     fetchMessages().then(
-//         () => {
-//             applicationElement.innerHTML = ShowMessages()
-//         }
-//     )
-// }
-// applicationElement.addEventListener(
-//     "stateChanged", () => {
-//         renderMessages()
-//     }
-// )

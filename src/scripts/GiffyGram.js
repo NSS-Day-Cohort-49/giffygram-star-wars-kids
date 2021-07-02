@@ -1,4 +1,4 @@
-import {gifForm} from "./feed/PostEntry.js"
+import { gifForm } from "./feed/PostEntry.js"
 import { listPost } from "./feed/PostList.js"
 import { NavBar } from "./nav/NavBar.js"
 import { footer } from "./nav/Footer.js"
