@@ -14,25 +14,25 @@ export const ShowMessages = () => {
     `
 }
 export const DirectMessages = () => {
-    const loggedUser = parseInt(localStorage.getItem("gg_user"));
+    const userId = parseInt(localStorage.getItem("gg_user"))
     const messages = getMessages()
     const users = getUsers()
-    for (const message of messages) {
-        if (loggedUser === message.recipientId) {
-            for (const user of users) {
-    let html = ""
-
-     html += 
-            
-          `
-                
+    let userPost = ""
+    let html = `
+    <ul>
+        ${messages.map((message) => {
+        for (const user of users) {
+            if (user.id === message.userId) {
+                userPost = user
+            }
+        }
+        return `
             <section>
-                <h2 class="message__author">From ${user.name}</h2>
+                <h2 class="message__author">From ${userPost.name}</h2>
                 <div class="message">${message.text}</div>
-            </section>
-            
-         `
+            `
+    }).join("")
+        }
+    `
     return html
-    }}}
 }
-    
