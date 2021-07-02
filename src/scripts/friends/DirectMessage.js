@@ -19,18 +19,17 @@ export const DirectMessages = () => {
     const users = getUsers()
     for (const message of messages) {
         if (loggedUser === message.recipientId) {
-            for (user of users) {
+            for (const user of users) {
     let html = ""
 
      html += 
-      
             
           `
-                <h1>test</h1>
-            // <section>
-            //     <h2 class="message__author">From ${user.name}</h2>
-            //     <div class="message">${message.text}</div>
-            // </section>
+                
+            <section>
+                <h2 class="message__author">From ${user.name}</h2>
+                <div class="message">${message.text}</div>
+            </section>
             
          `
     return html
