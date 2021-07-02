@@ -1,5 +1,5 @@
 import { NavBar } from "../nav/NavBar.js"
-import { fetchMessages, getMessages, getUsers, sendMessage } from "../data/provider.js"
+import { getUsers, sendMessage } from "../data/provider.js"
 import { gifForm } from "../feed/PostEntry.js"
 import { listPost } from "../feed/PostList.js"
 import { footer } from "../nav/Footer.js"
@@ -13,8 +13,6 @@ applicationElement.addEventListener("click", evt => {
 })
 applicationElement.addEventListener("click", evt => {
     if (evt.target.id === "directMessage__submit") {
-        // const loggedUser = parseInt(localStorage.getItem("gg_user"))
-        // const recipient = getUsers()
         const recipient = document.querySelector("#recipientSelect").value
         const message = document.querySelector("input[name='message']").value
         const dataToSendToMessageAPI = {
@@ -23,7 +21,11 @@ applicationElement.addEventListener("click", evt => {
             text: message,
             read: false
         }
-        sendMessage(dataToSendToMessageAPI)
+        if (recipient !== "" && message !== "") {
+            sendMessage(dataToSendToMessageAPI)
+        } else {
+            alert("Please fill in all fields")
+        }
     }
 })
 export const ShowMessageForm = () => {

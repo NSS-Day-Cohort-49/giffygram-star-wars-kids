@@ -14,10 +14,10 @@ export const ShowMessages = () => {
     `
 }
 export const DirectMessages = () => {
+    const userId = parseInt(localStorage.getItem("gg_user"))
     const messages = getMessages()
     const users = getUsers()
     let userPost = ""
-
     let html = `
     <ul>
         ${messages.map((message) => {
@@ -26,12 +26,10 @@ export const DirectMessages = () => {
                 userPost = user
             }
         }
-
         return `
             <section>
                 <h2 class="message__author">From ${userPost.name}</h2>
                 <div class="message">${message.text}</div>
-
             `
     }).join("")
         }

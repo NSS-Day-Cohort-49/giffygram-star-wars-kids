@@ -33,7 +33,7 @@ export const listPost = () => {
                     Delete
                 </button>
                 <div class="post__favorite">
-                <input type="checkbox " value="${post.id}" name="favorite">Favorite</div>
+                <input type="checkbox" value="${post.id}" name="favorite">Favorite</div>
             </section>`;
             })
             .join("")}

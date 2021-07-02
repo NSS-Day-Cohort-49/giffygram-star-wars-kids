@@ -13,6 +13,6 @@
     margin: auto;
 }
 
-.footer__item {
-    margin: 0 1rem;
+.favoritesLabel {
+    flex: 50%
 }

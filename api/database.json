@@ -29,6 +29,14 @@
       "imageURL": "https://media1.tenor.com/images/208e20e60976de0866af58ac32386f41/tenor.gif?itemid=14902415",
       "description": "Good People",
       "timestamp": 1
+    },
+    {
+      "userId": 2,
+      "title": "Serious Business",
+      "imageURL": "https://media3.giphy.com/media/10RVT8mge0xQwU/100.webp?cid=ecf05e47wys01k8gi1p4utr4osafzpem4rv2xz85wdmsl05i&rid=100.webp&ct=g",
+      "description": "Getting to the point",
+      "timestamp": "07/01/2021",
+      "id": 3
     }
   ],
   "likes": [
@@ -38,14 +46,19 @@
       "postId": 2
     },
     {
-      "postId": 2,
-      "userId": 1,
-      "id": 6
+      "id": 2,
+      "userId": 2,
+      "postId": 2
     },
     {
-      "postId": 1,
+      "id": 3,
+      "userId": 2,
+      "postId": 3
+    },
+    {
+      "id": 4,
       "userId": 1,
-      "id": 10
+      "postId": 3
     }
   ],
   "messages": [
@@ -89,6 +102,34 @@
       "text": "testtesttest",
       "read": false,
       "id": 6
+    },
+    {
+      "userId": 3,
+      "recipientId": null,
+      "text": "test",
+      "read": false,
+      "id": 7
+    },
+    {
+      "userId": 3,
+      "recipientId": null,
+      "text": "test",
+      "read": false,
+      "id": 8
+    },
+    {
+      "userId": 3,
+      "recipientId": 1,
+      "text": "test",
+      "read": false,
+      "id": 9
+    },
+    {
+      "userId": 3,
+      "recipientId": 2,
+      "text": "testtesttest",
+      "read": false,
+      "id": 10
     }
   ],
   "follows": [
