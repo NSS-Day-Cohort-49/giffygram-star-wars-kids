@@ -5,8 +5,6 @@ import { renderApp } from "../main.js";
 
 const applicationElement = document.querySelector(".giffygram");
 
-
-
 applicationElement.addEventListener("click", (clickEvent) => {
   if (clickEvent.target.id === "favoritesCheckbox") {
     applicationElement.innerHTML = ShowFaves();
@@ -19,26 +17,28 @@ applicationElement.addEventListener("click", (clickEvent) => {
   }
 });
 applicationElement.addEventListener("change", (changeEvent) => {
-  if (changeEvent.target.value === "0" && changeEvent.target.id === "authorSelect") {
+  if (
+    changeEvent.target.value === "0" &&
+    changeEvent.target.id === "authorSelect"
+  ) {
     applicationElement.innerHTML = GiffyGram();
   }
 });
 
-
 applicationElement.addEventListener("change", (changeEvent) => {
-  const posts = getPost();
-  const users = getUsers();
-  let html = ""
+  let html = "";
   if (changeEvent.target.id === "authorSelect") {
-    const selectedAuthor = changeEvent.target.value;
-    const author = users.find(user => user.id === selectedAuthor)
-    const authorsPost = posts.filter(post => post.userId === author )
-        for (const post of authorsPost) {
-           
-            html += `
+    const posts = getPost();
+    // debugger
+    const users = getUsers();
+    const selectedAuthor = parseInt(changeEvent.target.value);
+    const author = users.find((user) => user.id === selectedAuthor);
+    const authorsPost = posts.filter((post) => post.userId === author.id);
+    for (const post of authorsPost) {
+      html += `
             
-            <section class="post__list">
-            <div class="picTitle"
+            <section>
+            <div class="picTitle">
             <h2 class= "post__title">${post.title}</h2>
             <img class="post__image" src=${post.imageURL}>
             </div>
@@ -57,10 +57,10 @@ applicationElement.addEventListener("change", (changeEvent) => {
             </div>
             </section>
             
-            `
-            applicationElement.querySelector(".post__list").innerHTML = html
- }}
-        renderApp()
+            `;
+        }
+    document.querySelector(".post__list").innerHTML = html;
+  }
 });
 
 export const ShowFaves = () => {
@@ -106,8 +106,10 @@ export const favPost = () => {
                 </div>
                 </section>
                 
-                `
-             }}}
+                `;
+      }
+    }
+  }
   return html;
 };
 
@@ -119,14 +121,14 @@ export const footer = () => {
 
             <div class="footer__item">
                
-                <select class="dropdown" name="author" id="authorSelect">
+                <select class="favoritesLabel" name="author" id="authorSelect">
                     <option value="0">Select by user...</option>
                     <option value="0">All</option>
                         ${postAuthors
-                        .map((author) => {
+                          .map((author) => {
                             return `<option value="${author.id}">${author.name} </option>`;
-                        })
-                        .join("")}
+                          })
+                          .join("")}
                 </select>
               
                 

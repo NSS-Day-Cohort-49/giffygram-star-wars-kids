@@ -23,7 +23,8 @@ export const renderApp = () => {
 applicationElement.addEventListener(
     "stateChanged",
     () => {
-      renderApp()
+     console.log("test")
+     renderApp()
     }
   )
 renderApp() 

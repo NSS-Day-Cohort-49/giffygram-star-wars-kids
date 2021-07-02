@@ -13,3 +13,6 @@
     margin: auto;
 }
 
+.favoritesLabel {
+    flex: 50%
+}
