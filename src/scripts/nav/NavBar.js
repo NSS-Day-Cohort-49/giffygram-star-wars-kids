@@ -6,12 +6,12 @@ const applicationElement = document.querySelector(".giffygram")
 
 const readMessageCounter = () => {
     let numberOfMessages = 0
-        const messages = getMessages()
-        for (const message of messages) {
-            if (message.read === false) {
-                numberOfMessages++
-            }
+    const messages = getMessages()
+    for (const message of messages) {
+        if (message.read === false) {
+            numberOfMessages++
         }
+    }
     return numberOfMessages
 }
 
