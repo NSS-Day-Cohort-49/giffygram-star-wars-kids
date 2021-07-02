@@ -1,4 +1,4 @@
-import { getPost, getUsers, getLikes} from "../data/provider.js"
+import { getPost, getUsers, getLikes } from "../data/provider.js"
 import { NavBar } from "./NavBar.js"
 import { GiffyGram } from "../GiffyGram.js"
 
@@ -7,34 +7,34 @@ const applicationElement = document.querySelector(".giffygram")
 const loggedUser = parseInt(localStorage.getItem("gg_user"))
 
 applicationElement.addEventListener("click", clickEvent => {
-    if(clickEvent.target.id === "favoritesCheckbox"){
+    if (clickEvent.target.id === "favoritesCheckbox") {
         applicationElement.innerHTML = ShowFaves()
-        }
+    }
 })
 
 applicationElement.addEventListener("click", clickEvent => {
-    if(clickEvent.target.id === "backButton"){
+    if (clickEvent.target.id === "backButton") {
         applicationElement.innerHTML = GiffyGram()
-        }
+    }
 })
 applicationElement.addEventListener("change", changeEvent => {
-    if(changeEvent.target.value === "1"){
+    if (changeEvent.target.value === "1") {
         applicationElement.innerHTML = GiffyGram()
-        }
+    }
 })
 applicationElement.addEventListener("change", changeEvent => {
     const posts = getPost()
     const users = getUsers()
-    if(changeEvent.target.id === "authorSelect"){
+    if (changeEvent.target.id === "authorSelect") {
         const selectedAuthor = changeEvent.target.value
         for (const user of users) {
-            if (selectedAuthor === user.id){
+            if (selectedAuthor === user.id) {
                 for (post of posts) {
-                    if (user.id === post.userId ) {
+                    if (user.id === post.userId) {
                         favPost = post
-                        
-                        
-                return `
+
+
+                        return `
                 
                 <section class="post__list">
                  <div class="picTitle"
@@ -57,9 +57,11 @@ applicationElement.addEventListener("change", changeEvent => {
                 </section>
                 
                 `
-            }}}
+                    }
+                }
+            }
         }
-        }
+    }
 })
 
 
@@ -77,25 +79,25 @@ export const ShowFaves = () => {
 }
 
 const favByAuthor = () => {
-    
+
 }
 export const favPost = () => {
     let favPost = ""
-    let userPost =""
+    let userPost = ""
     const posts = getPost()
     const likes = getLikes()
     const users = getUsers()
     for (const like of likes) {
-       if (loggedUser === like.userId) {
-           for (const post of posts) {
+        if (loggedUser === like.userId) {
+            for (const post of posts) {
                 if (like.postId === post.id) {
-                 favPost = post
-                 for (const user of users) {
-                    if (user.id === post.userId) {
-                    userPost = user
+                    favPost = post
+                    for (const user of users) {
+                        if (user.id === post.userId) {
+                            userPost = user
+                        }
                     }
-                } 
-                 return `
+                    return `
                 
                  <section class="post__list">
                   <div class="picTitle"
@@ -116,10 +118,14 @@ export const favPost = () => {
                  </section>
                  
                  `
-}}}}}
-    
+                }
+            }
+        }
+    }
+}
 
- export const footer = () => {
+
+export const footer = () => {
     const postAuthors = getUsers()
 
     let html = `
@@ -129,13 +135,13 @@ export const favPost = () => {
                 <select class="dropdown" name="author" id="authorSelect">
                 <option value="0">Select by user...</option>
                 <option value="1">All</option>
-                    ${postAuthors.map(author => { return `<option value="${author.id}">${author.name} </option>`}).join("") }
+                    ${postAuthors.map(author => { return `<option value="${author.id}">${author.name} </option>` }).join("")}
                 </select>
                 <label id="Container""class="label" for="favorites">Show only   your favorites</label>
                 <input type="checkbox" id="favoritesCheckbox" name="favoritesCheckbox" value="favorite">
             </div>
 
         </div>
-  `  
+  `
     return html
 }

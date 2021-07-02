@@ -26,14 +26,14 @@ export const ShowMessageForm = () => {
 }
 export const MessageForm = () => {
     const recipient = getUsers()
-    
+
     let html = `
         <div class="">
             <h3>Direct Message</h3>
             <div>Recipient: 
                 <select name="directMessage__userSelect" class="message__input" id="recipientSelect">
                     <option value="0">Select recipient...</option>
-                    ${recipient.map(recip => { return `<option value="${recip.id}">${recip.name} </option>`}).join("")}
+                    ${recipient.map(recip => { return `<option value="${recip.id}">${recip.name} </option>` }).join("")}
                 </select>
             </div>
             <div>

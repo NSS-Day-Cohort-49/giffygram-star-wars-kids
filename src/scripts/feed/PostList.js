@@ -5,19 +5,18 @@ export const listPost = () => {
     const posts = getPost()
     const users = getUsers()
     let userPost = ""
-    
-    
-    let html =`
-    <ul>
-    ${
-        posts.map((post) => { 
-            for (const user of users) {
-                if (user.id === post.userId) {
-                userPost = user
-                }
-            }
 
-            return `
+
+    let html = `
+    <ul>
+    ${posts.map((post) => {
+        for (const user of users) {
+            if (user.id === post.userId) {
+                userPost = user
+            }
+        }
+
+        return `
             <section>
                 <h2 class= "post__title">${post.title}</h2>
                 <img class="post__image" src=${post.imageURL}>
@@ -29,9 +28,9 @@ export const listPost = () => {
                 <div class="post__favorite">
                 <input type="checkbox" value="${post.id}">Fevorite</div>
             </section>`
-        }
-        ).join("")
     }
+    ).join("")
+        }
     `
     return html
 }
@@ -39,7 +38,7 @@ export const listPost = () => {
 const applicationElement = document.querySelector(".giffygram")
 applicationElement.addEventListener("click", click => {
     if (click.target.id.startsWith("post--")) {
-        const [,postId] = click.target.id.split("--")
+        const [, postId] = click.target.id.split("--")
         deletePost(parseInt(postId))
     }
 })
